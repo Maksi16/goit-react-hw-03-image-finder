@@ -4,19 +4,19 @@ import { Header, SearchForm, SearchInput } from './Searchbar.style';
 
 export class Searchbar extends Component {
   state = {
-    ImgName: '',
+    searchImg: '',
   };
   handleNameChenge = e => {
-    this.setState({ ImgName: e.currentTarget.value.toLowerCase() });
+    this.setState({ searchImg: e.currentTarget.value.toLowerCase() });
   };
   handleSubmit = e => {
     e.preventDefault();
-    if (this.state.ImgName.trim() === '') {
+    if (this.state.searchImg.trim() === '') {
       alert('Please, write the correct query!');
       return;
     }
-    this.props.onSubmit(this.state.ImgName);
-    this.setState({ ImgName: '' });
+    this.props.onSubmit(this.state.searchImg);
+    this.setState({ searchImg: '' });
   };
 
   render() {
@@ -28,7 +28,7 @@ export class Searchbar extends Component {
           </AiOutlineSearch>
 
           <SearchInput
-            value={this.state.ImgName}
+            value={this.state.searchImg}
             onChange={this.handleNameChenge}
             type="text"
             autocomplete="off"
