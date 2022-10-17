@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { Header, SearchForm, SearchInput } from './Searchbar.style';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export class Searchbar extends Component {
   state = {
@@ -12,7 +14,9 @@ export class Searchbar extends Component {
   handleSubmit = e => {
     e.preventDefault();
     if (this.state.searchImg.trim() === '') {
-      alert('Please, write the correct query!');
+      toast.info('Please, write the correct query!', {
+        position: toast.POSITION.TOP_CENTER,
+      });
       return;
     }
     this.props.onSubmit(this.state.searchImg);

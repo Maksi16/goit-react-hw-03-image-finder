@@ -70,7 +70,7 @@ export class App extends Component {
           isSubmitting={isLoading}
         ></Searchbar>
 
-        {<ToastContainer />}
+        {<ToastContainer autoClose={2000} />}
 
         {isLoading && <Loader />}
         {images.length > 0 && <ImageGallery images={images} />}
