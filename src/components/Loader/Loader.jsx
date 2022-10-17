@@ -4,8 +4,8 @@ import { Triangle } from 'react-loader-spinner';
 export const Loader = () => {
   return (
     <Triangle
-      height="80"
-      width="80"
+      height="200"
+      width=""
       color="#4fa94d"
       ariaLabel="triangle-loading"
       wrapperStyle={{}}

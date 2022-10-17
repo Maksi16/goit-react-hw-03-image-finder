@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Modal } from '../Modal/Modal';
-//import { Item, Img } from './ImageGalleryItem.styled';
+import { Image, Item } from './ImageGalleryItem.style';
 
 export class ImageGalleryItem extends Component {
   state = {
@@ -14,28 +14,28 @@ export class ImageGalleryItem extends Component {
 
   render() {
     const { isModalOpen } = this.state;
-    const { webformatURL, tags, largeImageURL } = this.props;
+    const { smallURL, alt, largeURL } = this.props;
     return (
-      <li>
-        <img
-          src={webformatURL}
-          alt={tags}
+      <Item>
+        <Image
+          src={smallURL}
+          alt={alt}
           width="200"
           onClick={this.toggleModal}
         />
         {isModalOpen && (
           <Modal
             closeFn={this.toggleModal}
-            largeImageURL={largeImageURL}
-            alt={tags}
+            largeImageURL={largeURL}
+            alt={alt}
           />
         )}
-      </li>
+      </Item>
     );
   }
 }
 ImageGalleryItem.propTypes = {
-  webformatURL: PropTypes.string.isRequired,
-  tags: PropTypes.string.isRequired,
-  largeImageURL: PropTypes.string.isRequired,
+  smallURL: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  largeURL: PropTypes.string.isRequired,
 };
