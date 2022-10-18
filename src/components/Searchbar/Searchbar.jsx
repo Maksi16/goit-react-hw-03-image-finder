@@ -3,6 +3,7 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import { Header, SearchForm, SearchInput } from './Searchbar.style';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PropTypes from 'prop-types';
 
 export class Searchbar extends Component {
   state = {
@@ -19,9 +20,10 @@ export class Searchbar extends Component {
       });
       return;
     }
+
     this.props.onSubmit(this.state.searchImg);
-    this.setState({ searchImg: '' });
-    e.target.reset();
+    //this.setState({ searchImg: '' });
+    //e.target.reset();
   };
 
   render() {
@@ -45,3 +47,6 @@ export class Searchbar extends Component {
     );
   }
 }
+Searchbar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};

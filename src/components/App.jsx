@@ -55,7 +55,9 @@ export class App extends Component {
   };
 
   hendleFormSubmit = searchImg => {
-    this.setState({ searchImg, images: [], page: 1 });
+    if (this.state.searchImg !== searchImg) {
+      this.setState({ searchImg, images: [], page: 1 });
+    }
   };
   handleLoadMoreBtn = () => {
     this.setState(state => ({ page: state.page + 1 }));
