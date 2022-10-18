@@ -46,6 +46,7 @@ export class App extends Component {
         images: [...state.images, ...images.hits],
         totalHits: images.totalHits,
       }));
+      toast.info(`Hooray! We found ${this.state.totalHits} images.`);
       //console.log(images);
     } catch (error) {
       toast.error(`Sorry, something went wrong. Please try again.`);
